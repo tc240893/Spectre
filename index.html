@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="src/img/ico/favicon.ico" />
+    <title>Spectre</title>
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="searchOverlay" class="search-overlay">
+      <div class="search-container">
+        <button class="search-close" id="closeSearch" aria-label="Fermer la recherche">&times;</button>
+        <input type="search" id="overlaySearch" class="overlay-search-input" placeholder="Rechercher un film..." aria-label="Recherche de film">
+        <div id="overlayResults" class="overlay-results"></div>
+      </div>
+    </div>
+    <div class="container">
+      <header class="header" role="banner">
+        <a href="index.html" class="logo">Spectre</a>
+        <nav class="header-nav" aria-label="Navigation principale">
+          <button class="icon-btn" id="searchBtn" aria-label="Rechercher">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg>
+          </button>
+          <button class="icon-btn" id="themeToggle" aria-label="Changer de thème">
+            <span id="themeIcon"></span>
+          </button>
+          <a href="https://facebook.com/SUPINFO" target="_blank" rel="noopener" class="icon-btn" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+            </svg>
+          </a>
+          <a href="https://x.com/SUPINFO" target="_blank" rel="noopener" class="icon-btn" aria-label="X">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
+          </a>
+          <a href="https://www.supinfo.com" target="_blank" rel="noopener" class="icon-btn" aria-label="SUPINFO">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+          </a>
+        </nav>
+      </header>
+      <main>
+        <section class="hero">
+          <h1>Découvrez votre prochain film préféré</h1>
+          <p class="hero-subtitle">Des milliers de films et séries à explorer</p>
+          <a href="search.html" class="btn-hero">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg> Rechercher </a>
+        </section>
+        <section class="content-section">
+          <h2>Continuer à regarder</h2>
+          <div id="continueWatching" class="movie-grid" aria-live="polite"></div>
+        </section>
+        <section class="content-section">
+          <h2>Films populaires</h2>
+          <div id="movies" class="movie-grid" aria-live="polite"></div>
+          <div class="load-more-container">
+            <button id="loadMoreMovies" class="btn-secondary">Charger plus de films</button>
+          </div>
+        </section>
+        <section class="content-section">
+          <h2>Séries du moment</h2>
+          <div id="series" class="movie-grid" aria-live="polite"></div>
+          <div class="load-more-container">
+            <button id="loadMoreSeries" class="btn-secondary">Charger plus de séries</button>
+          </div>
+        </section>
+        <section class="features">
+          <div class="feature-item">
+            <div class="feature-content">
+              <h3>Découvrez des milliers de films</h3>
+              <p>Explorez notre vaste catalogue de films classiques et récents. Des blockbusters aux films indépendants, trouvez exactement ce que vous cherchez.</p>
+            </div>
+            <div class="feature-image">
+              <div class="placeholder-img">Image 1</div>
+            </div>
+          </div>
+          <div class="feature-item reverse">
+            <div class="feature-content">
+              <h3>Recherche instantanée</h3>
+              <p>Notre moteur de recherche puissant vous permet de trouver n'importe quel film en quelques secondes. Tapez simplement quelques lettres et découvrez des résultats pertinents.</p>
+            </div>
+            <div class="feature-image">
+              <div class="placeholder-img">Image 2</div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-content">
+              <h3>Informations détaillées</h3>
+              <p>Accédez à des fiches complètes avec le casting, le synopsis, les notes et bien plus encore pour chaque film de notre base de données.</p>
+            </div>
+            <div class="feature-image">
+              <div class="placeholder-img">Image 3</div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Spectre</h4>
+          <p class="footer-text">Votre destination pour découvrir les meilleurs films et séries.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Liens rapides</h4>
+          <nav class="footer-links" aria-label="Liens du pied de page">
+            <a href="about.html">À propos</a>
+            <a href="privacy-policy.html">Infos légales</a>
+            <a href="credits.html">Crédits</a>
+          </nav>
+        </div>
+        <div class="footer-section">
+          <h4>Suivez-nous</h4>
+          <div class="footer-social">
+            <a href="https://facebook.com/SUPINFO" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </a>
+            <a href="https://x.com/SUPINFO" target="_blank" rel="noopener" aria-label="X">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </a>
+            <a href="https://www.supinfo.com" target="_blank" rel="noopener" aria-label="SUPINFO">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p> &copy; 2025 Spectre. Tous droits réservés.</p>
+      </div>
+    </footer>
+    <script type="module" src="src/js/theme.js"></script>
+    <script type="module" src="src/js/api.js"></script>
+    <script type="module" src="src/js/index.js"></script>
+    <script type="module" src="src/js/search-overlay.js"></script>
+  </body>
+</html>
