@@ -28,7 +28,7 @@
 1. Obtenez le code source soit en **[téléchargeant le zip](https://github.com/lava1879/Spectre/archive/main.zip)**, soit en faisant `git clone https://github.com/lava1879/Spectre`.
 2. Installez les dépendances (soit Live Server depuis le Visual Studio Marketplace, soit http-server en utilisant `npm install --global http-server`).
 3. Ouvrez le dossier contenant le code source (ou extraire le zip téléchargé et ouvrer le dossier), puis ouvrez le répertoire du programme dans un terminal.
-4. Tapez dans le terminal `http-server` pour lancer l'application web **(situé par défaut à http://localhost:3000)**.
+4. Tapez dans le terminal `http-server` pour lancer l'application web **(situé par défaut à http://localhost:8080)**.
 
 ## Comment ça marche ?
 
