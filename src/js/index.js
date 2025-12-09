@@ -14,25 +14,35 @@ const elements = {
 	loadMoreSeries: document.getElementById("loadMoreSeries")
 };
 
-const keywords = {
-	movies: [
-		"Inception", "Interstellar", "Dark Knight", "Avengers", "Guardians Galaxy",
-		"Matrix", "Pulp Fiction", "Forrest Gump", "Shawshank Redemption", "Godfather",
-		"Fight Club", "Lord Rings", "Star Wars", "Gladiator", "Titanic",
-		"Avatar", "Joker", "Parasite", "Oppenheimer", "Dune"
-	],
-	series: [
-		"Pluribus", "Better Call Saul", "Breaking Bad", "Friends", "Office",
-		"House", "Mandalorian", "Witcher", "Vikings", "Peaky Blinders",
-		"Sopranos", "Wire", "True Detective", "Westworld", "House Cards"
-	],
-	continueWatching: ["Pluribus", "House", "Batman Begins"]
-};
+let keywords = null;
 
 const usedKeywords = {
 	movies: new Set(),
 	series: new Set()
 };
+
+async function loadKeywords() {
+	try {
+		const response = await fetch('src/data/keywords.json');
+		keywords = await response.json();
+	} catch (error) {
+		console.error('Failed to load keywords, using defaults:', error);
+		keywords = {
+			movies: [
+				"Inception", "Interstellar", "Dark Knight", "Avengers", "Guardians Galaxy",
+				"Matrix", "Pulp Fiction", "Forrest Gump", "Shawshank Redemption", "Godfather",
+				"Fight Club", "Lord Rings", "Star Wars", "Gladiator", "Titanic",
+				"Avatar", "Joker", "Parasite", "Oppenheimer", "Dune"
+			],
+			series: [
+				"Pluribus", "Better Call Saul", "Breaking Bad", "Friends", "Office",
+				"House", "Mandalorian", "Witcher", "Vikings", "Peaky Blinders",
+				"Sopranos", "Wire", "True Detective", "Westworld", "House Cards"
+			],
+			continueWatching: ["Pluribus", "House", "Batman Begins"]
+		};
+	}
+}
 
 function getRandomUnusedKeywords(type, count) {
 	const available = keywords[type].filter(k => !usedKeywords[type].has(k));
@@ -61,13 +71,13 @@ function createMovieCard(movie) {
 	card.innerHTML = `
     <img 
       src="${getPosterUrl(movie.Poster)}" 
-      alt="Affiche de ${(movie.Title)}" 
+      alt="Affiche de ${movie.Title}" 
       class="movie-poster" 
       loading="lazy"
       onerror="this.src='${getDefaultPoster()}'"
     >
-    <div class="movie-title">${(movie.Title)}</div>
-    <div class="movie-year">${(movie.Year)}</div>
+    <div class="movie-title">${movie.Title}</div>
+    <div class="movie-year">${movie.Year}</div>
   `;
 	return card;
 }
@@ -93,16 +103,22 @@ async function loadContinueWatching() {
 	);
 }
 
-elements.loadMoreMovies.addEventListener("click", () =>
-	loadContent("movies", elements.movies, elements.loadMoreMovies, "movie")
-);
+async function init() {
+	await loadKeywords();
 
-elements.loadMoreSeries.addEventListener("click", () =>
-	loadContent("series", elements.series, elements.loadMoreSeries, "series")
-);
+	elements.loadMoreMovies.addEventListener("click", () =>
+		loadContent("movies", elements.movies, elements.loadMoreMovies, "movie")
+	);
 
-Promise.all([
-	loadContinueWatching(),
-	loadContent("movies", elements.movies, elements.loadMoreMovies, "movie"),
-	loadContent("series", elements.series, elements.loadMoreSeries, "series")
-]);
+	elements.loadMoreSeries.addEventListener("click", () =>
+		loadContent("series", elements.series, elements.loadMoreSeries, "series")
+	);
+
+	await Promise.all([
+		loadContinueWatching(),
+		loadContent("movies", elements.movies, elements.loadMoreMovies, "movie"),
+		loadContent("series", elements.series, elements.loadMoreSeries, "series")
+	]);
+}
+
+init();
