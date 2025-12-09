@@ -28,7 +28,7 @@
 1. Ouvrez le dossier contenant le code source (ou extraire le zip téléchargé et ouvrer le dossier), puis ouvrez le répertoire du programme dans un terminal.
 1. Tapez dans le terminal `serve` pour lancer l'application web **(situé par défaut à http://localhost:3000)**.
 
-## Technologies Utilisées
+## Technologies utilisées
 Ce site utilise **HTML, CSS et JavaScript moderne** pour offrir une expérience utilisateur fluide et responsive. Les données proviennent de **<a href="https://www.omdbapi.com">l'API OMDb</a>**, une base de données complète et fiable.
         
 ## Pourquoi nous choisir ?
