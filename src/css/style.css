@@ -590,7 +590,6 @@ select {
 .footer-text {
   color: var(--text-secondary);
   line-height: 1.6;
-  max-width: 400px;
 }
 
 .footer-links {
