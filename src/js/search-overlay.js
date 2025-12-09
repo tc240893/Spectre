@@ -1,6 +1,10 @@
 import {
 	searchMovies
 } from "./api.js";
+import {
+	escapeHtml,
+	createMovieCard
+} from "./utils.js";
 
 const overlay = document.getElementById("searchOverlay");
 const searchBtn = document.getElementById("searchBtn");
@@ -25,27 +29,6 @@ function closeOverlay() {
 	currentQuery = "";
 }
 
-function renderSearchResult(movie) {
-	const card = document.createElement("a");
-	card.href = `movie.html?id=${movie.imdbID}`;
-	card.className = "movie-card";
-
-	const poster = movie.Poster !== "N/A" ? movie.Poster : "src/img/ico/nopicture.png";
-
-	card.innerHTML = `
-    <img 
-      src="${poster}" 
-      alt="Affiche de ${escapeHtml(movie.Title)}" 
-      class="movie-poster"
-      onerror="this.src='src/img/ico/nopicture.png'"
-    >
-    <div class="movie-title">${escapeHtml(movie.Title)}</div>
-    <div class="movie-year">${escapeHtml(movie.Year)}</div>
-  `;
-
-	return card;
-}
-
 async function performSearch(query) {
 	if (!query || query.length < 2) {
 		resultsContainer.innerHTML = "";
@@ -64,7 +47,7 @@ async function performSearch(query) {
 
 		if (result.Response === "True" && result.Search) {
 			result.Search.forEach(movie => {
-				const card = renderSearchResult(movie);
+				const card = createMovieCard(movie);
 				resultsContainer.appendChild(card);
 			});
 		} else {
@@ -74,15 +57,6 @@ async function performSearch(query) {
 		console.error("Search error:", error);
 		resultsContainer.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--muted);">Une erreur est survenue</p>';
 	}
-}
-
-function escapeHtml(str) {
-	return String(str || "")
-		.replaceAll("&", "&amp;")
-		.replaceAll("<", "&lt;")
-		.replaceAll(">", "&gt;")
-		.replaceAll('"', "&quot;")
-		.replaceAll("'", "&#039;");
 }
 
 if (searchBtn) {
