@@ -2,7 +2,6 @@ import {
 	searchMovies
 } from "./api.js";
 import {
-	escapeHtml,
 	getPosterUrl,
 	getDefaultPoster
 } from "./utils.js";
@@ -23,11 +22,11 @@ const keywords = {
 		"Avatar", "Joker", "Parasite", "Oppenheimer", "Dune"
 	],
 	series: [
-		"Breaking Bad", "Game Thrones", "Stranger Things", "Friends", "Office",
-		"Crown", "Mandalorian", "Witcher", "Vikings", "Peaky Blinders",
+		"Pluribus", "Better Call Saul", "Breaking Bad", "Friends", "Office",
+		"House", "Mandalorian", "Witcher", "Vikings", "Peaky Blinders",
 		"Sopranos", "Wire", "True Detective", "Westworld", "House Cards"
 	],
-	continueWatching: ["Spider-Man", "Batman Begins", "Iron Man"]
+	continueWatching: ["Pluribus", "House", "Batman Begins"]
 };
 
 const usedKeywords = {
@@ -62,13 +61,13 @@ function createMovieCard(movie) {
 	card.innerHTML = `
     <img 
       src="${getPosterUrl(movie.Poster)}" 
-      alt="Affiche de ${escapeHtml(movie.Title)}" 
+      alt="Affiche de ${(movie.Title)}" 
       class="movie-poster" 
       loading="lazy"
       onerror="this.src='${getDefaultPoster()}'"
     >
-    <div class="movie-title">${escapeHtml(movie.Title)}</div>
-    <div class="movie-year">${escapeHtml(movie.Year)}</div>
+    <div class="movie-title">${(movie.Title)}</div>
+    <div class="movie-year">${(movie.Year)}</div>
   `;
 	return card;
 }

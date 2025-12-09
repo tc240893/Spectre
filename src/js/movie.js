@@ -21,10 +21,6 @@ function formatDVD(dateStr) {
 	});
 }
 
-function renderMetaRow(items) {
-	return items.filter(Boolean).join("");
-}
-
 function renderRatings(ratings) {
 	if (!ratings?.length) return "";
 
