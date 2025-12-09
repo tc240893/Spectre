@@ -2,7 +2,6 @@ import {
 	getMovieById
 } from "./api.js";
 import {
-	escapeHtml,
 	getQueryParam,
 	getPosterUrl,
 	getDefaultPoster
@@ -34,7 +33,7 @@ function renderRatings(ratings) {
     <div class="meta-row">
       ${ratings.map(r => `
         <div style="padding: 8px 16px; background: var(--card); border-radius: 8px;">
-          <strong>${escapeHtml(r.Source)} :</strong> ${escapeHtml(r.Value)}
+          <strong>${(r.Source)} :</strong> ${(r.Value)}
         </div>
       `).join("")}
     </div>
@@ -46,28 +45,28 @@ function renderMovieDetails(movie) {
 
 	return `
     <div class="movie-hero">
-      <img src="${poster}" alt="Affiche de ${escapeHtml(movie.Title)}" 
+      <img src="${poster}" alt="Affiche de ${(movie.Title)}" 
            onerror="this.src='${getDefaultPoster()}'">
       <div class="movie-meta">
-        <h1>${escapeHtml(movie.Title)}</h1>
+        <h1>${(movie.Title)}</h1>
         
         <div class="meta-row">
-          <div><strong>Année :</strong> ${escapeHtml(movie.Year)}</div>
-          <div><strong>Genre :</strong> ${escapeHtml(movie.Genre)}</div>
-          <div><strong>Durée :</strong> ${escapeHtml(movie.Runtime)}</div>
-          ${movie.Rated !== "N/A" ? `<div><strong>Classification :</strong> ${escapeHtml(movie.Rated)}</div>` : ""}
+          <div><strong>Année :</strong> ${(movie.Year)}</div>
+          <div><strong>Genre :</strong> ${(movie.Genre)}</div>
+          <div><strong>Durée :</strong> ${(movie.Runtime)}</div>
+          ${movie.Rated !== "N/A" ? `<div><strong>Classification :</strong> ${(movie.Rated)}</div>` : ""}
         </div>
 
         <div class="meta-row">
-          <div><strong>Réalisateur :</strong> ${escapeHtml(movie.Director)}</div>
+          <div><strong>Réalisateur :</strong> ${(movie.Director)}</div>
         </div>
 
         <div class="meta-row">
-          <div><strong>Acteurs :</strong> ${escapeHtml(movie.Actors)}</div>
+          <div><strong>Acteurs :</strong> ${(movie.Actors)}</div>
         </div>
 
         <h3>Synopsis</h3>
-        <p>${escapeHtml(movie.Plot)}</p>
+        <p>${(movie.Plot)}</p>
 
         ${renderRatings(movie.Ratings)}
 
@@ -79,13 +78,13 @@ function renderMovieDetails(movie) {
 
         ${movie.BoxOffice && movie.BoxOffice !== "N/A" ? `
           <div class="meta-row">
-            <div><strong>Box Office :</strong> ${escapeHtml(movie.BoxOffice)}</div>
+            <div><strong>Box Office :</strong> ${(movie.BoxOffice)}</div>
           </div>
         ` : ""}
 
         ${movie.Awards && movie.Awards !== "N/A" ? `
           <div class="meta-row">
-            <div><strong>Récompenses :</strong> ${escapeHtml(movie.Awards)}</div>
+            <div><strong>Récompenses :</strong> ${(movie.Awards)}</div>
           </div>
         ` : ""}
       </div>

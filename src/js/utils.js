@@ -1,12 +1,3 @@
-export function escapeHtml(str) {
-	return String(str || "")
-		.replaceAll("&", "&amp;")
-		.replaceAll("<", "&lt;")
-		.replaceAll(">", "&gt;")
-		.replaceAll('"', "&quot;")
-		.replaceAll("'", "&#039;");
-}
-
 export function getQueryParam(name) {
 	return new URLSearchParams(location.search).get(name);
 }
@@ -28,13 +19,13 @@ export function createMovieCard(movie) {
 	card.innerHTML = `
     <img 
       src="${getPosterUrl(movie.Poster)}" 
-      alt="Affiche de ${escapeHtml(movie.Title)}" 
+      alt="Affiche de ${(movie.Title)}" 
       class="movie-poster" 
       loading="lazy"
       onerror="this.src='${getDefaultPoster()}'"
     >
-    <div class="movie-title">${escapeHtml(movie.Title)}</div>
-    <div class="movie-year">${escapeHtml(movie.Year)}</div>
+    <div class="movie-title">${(movie.Title)}</div>
+    <div class="movie-year">${(movie.Year)}</div>
   `;
 
 	return card;

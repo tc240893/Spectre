@@ -2,7 +2,6 @@ import {
 	searchMovies
 } from "./api.js";
 import {
-	escapeHtml,
 	createMovieCard
 } from "./utils.js";
 
@@ -51,7 +50,7 @@ async function performSearch(query) {
 				resultsContainer.appendChild(card);
 			});
 		} else {
-			resultsContainer.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--muted);">Aucun résultat pour "${escapeHtml(query)}"</p>`;
+			resultsContainer.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--muted);">Aucun résultat pour "${(query)}"</p>`;
 		}
 	} catch (error) {
 		console.error("Search error:", error);

@@ -2,7 +2,6 @@ import {
 	searchMovies
 } from "./api.js";
 import {
-	escapeHtml,
 	createMovieCard
 } from "./utils.js";
 
@@ -65,7 +64,7 @@ async function performSearch(query, page = 1) {
 			}
 		} else {
 			if (page === 1) {
-				showMessage(`Aucun résultat pour "${escapeHtml(query)}"`);
+				showMessage(`Aucun résultat pour "${(query)}"`);
 			}
 			loadMoreBtn.style.display = "none";
 		}
