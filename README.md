@@ -8,7 +8,7 @@
 
 ## Télécharger 
 
-**[Télécharger le code source](https://github.com/lava1879/Spectre/archive/main.zip)**
+**[Télécharger le code source](https://github.com/tc240893/Spectre/archive/main.zip)**
 
 ## Configuration requise
 
@@ -25,7 +25,7 @@
 
 ## Installation
 
-1. Obtenez le code source soit en **[téléchargeant le zip](https://github.com/lava1879/Spectre/archive/main.zip)**, soit en faisant `git clone https://github.com/lava1879/Spectre`.
+1. Obtenez le code source soit en **[téléchargeant le zip](https://github.com/tc240893/Spectre/archive/main.zip)**, soit en faisant `git clone https://github.com/tc240893/Spectre`.
 2. Installez les dépendances (soit Live Server depuis le Visual Studio Marketplace, soit http-server en utilisant `npm install --global http-server`).
 3. Ouvrez le dossier contenant le code source (ou extraire le zip téléchargé et ouvrer le dossier), puis ouvrez le répertoire du programme dans un terminal.
 4. Tapez dans le terminal `http-server` pour lancer l'application web **(situé par défaut à http://localhost:8080)**.
@@ -45,7 +45,7 @@ Spectre/
     └── keywords.json      # Mots clés 
 └── src/
     ├── css/
-    │   └── style.css      # Styles CSS avec thème dark/light
+    │   └── style.css      # Style CSS avec thème dark/light
     ├── js/
     │   ├── api.js         # Communication avec l'API OMDb
     │   ├── index.js       # Logique page d'accueil
@@ -54,6 +54,9 @@ Spectre/
     │   ├── search-overlay.js  # Overlay de recherche
     │   └── theme.js       # Gestion du thème
     └── img/
+        ├── 1.png
+        ├── 2.png
+        ├── 3.png
         └── ico/
             ├── favicon.ico
             └── nopicture.png  # Image par défaut
