@@ -1,49 +1,42 @@
-import {
-	getMovieById
-} from "./api.js";
-import {
-	getQueryParam,
-	getPosterUrl,
-	getDefaultPoster
-} from "./utils.js";
+import { getMovieById } from "./api.js";
+import { getQueryParam, getPosterUrl, getDefaultPoster } from "./utils.js";
 
 const contentEl = document.getElementById("content");
 
-function formatDVD(dateStr) {
-	if (!dateStr || dateStr === "N/A") return "N/A";
-	const date = new Date(dateStr);
-	if (isNaN(date)) return dateStr;
+const formatDVD = (dateStr) => {
+  if (!dateStr || dateStr === "N/A") return "N/A";
+  const date = new Date(dateStr);
+  if (isNaN(date)) return dateStr;
+  
+  return date.toLocaleDateString("fr-FR", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric"
+  });
+};
 
-	return date.toLocaleDateString("fr-FR", {
-		day: "2-digit",
-		month: "2-digit",
-		year: "numeric"
-	});
-}
-
-function renderRatings(ratings) {
-	if (!ratings?.length) return "";
-
-	return `
+const renderRatings = (ratings) => {
+  if (!ratings?.length) return "";
+  
+  return `
     <h3>Notes</h3>
     <div class="meta-row">
       ${ratings.map(r => `
         <div style="padding: 8px 16px; background: var(--card); border-radius: 8px;">
-          <strong>${r.Source} :</strong> ${r.Value}
+          <strong>${r.Source}:</strong> ${r.Value}
         </div>
       `).join("")}
     </div>
   `;
-}
+};
 
 function renderMovieDetails(movie) {
-	const poster = getPosterUrl(movie.Poster);
-	const isSeries = movie.Type === "series";
-
-	const creatorLabel = isSeries ? "Scénariste" : "Réalisateur";
-	const creatorValue = isSeries ? movie.Writer : movie.Director;
-
-	return `
+  const poster = getPosterUrl(movie.Poster);
+  const isSeries = movie.Type === "series";
+  const creatorLabel = isSeries ? "Scénariste" : "Réalisateur";
+  const creatorValue = isSeries ? movie.Writer : movie.Director;
+  
+  return `
     <div class="movie-hero">
       <img src="${poster}" alt="Affiche de ${movie.Title}" 
            onerror="this.src='${getDefaultPoster()}'">
@@ -51,20 +44,20 @@ function renderMovieDetails(movie) {
         <h1>${movie.Title}</h1>
         
         <div class="meta-row">
-          <div><strong>Année :</strong> ${movie.Year}</div>
-          <div><strong>Genre :</strong> ${movie.Genre}</div>
-          <div><strong>Durée :</strong> ${movie.Runtime}</div>
-          ${movie.Rated !== "N/A" ? `<div><strong>Classification :</strong> ${movie.Rated}</div>` : ""}
+          <div><strong>Année:</strong> ${movie.Year}</div>
+          <div><strong>Genre:</strong> ${movie.Genre}</div>
+          <div><strong>Durée:</strong> ${movie.Runtime}</div>
+          ${movie.Rated !== "N/A" ? `<div><strong>Classification:</strong> ${movie.Rated}</div>` : ""}
         </div>
 
         ${creatorValue && creatorValue !== "N/A" ? `
           <div class="meta-row">
-            <div><strong>${creatorLabel} :</strong> ${creatorValue}</div>
+            <div><strong>${creatorLabel}:</strong> ${creatorValue}</div>
           </div>
         ` : ""}
 
         <div class="meta-row">
-          <div><strong>Acteurs :</strong> ${movie.Actors}</div>
+          <div><strong>Acteurs:</strong> ${movie.Actors}</div>
         </div>
 
         <h3>Synopsis</h3>
@@ -74,19 +67,19 @@ function renderMovieDetails(movie) {
 
         ${movie.DVD && movie.DVD !== "N/A" ? `
           <div class="meta-row" style="margin-top: 16px;">
-            <div><strong>Sortie DVD :</strong> ${formatDVD(movie.DVD)}</div>
+            <div><strong>Sortie DVD:</strong> ${formatDVD(movie.DVD)}</div>
           </div>
         ` : ""}
 
         ${movie.BoxOffice && movie.BoxOffice !== "N/A" ? `
           <div class="meta-row">
-            <div><strong>Box Office :</strong> ${movie.BoxOffice}</div>
+            <div><strong>Box Office:</strong> ${movie.BoxOffice}</div>
           </div>
         ` : ""}
 
         ${movie.Awards && movie.Awards !== "N/A" ? `
           <div class="meta-row">
-            <div><strong>Récompenses :</strong> ${movie.Awards}</div>
+            <div><strong>Récompenses:</strong> ${movie.Awards}</div>
           </div>
         ` : ""}
       </div>
@@ -95,28 +88,28 @@ function renderMovieDetails(movie) {
 }
 
 async function loadMovie() {
-	const movieId = getQueryParam("id");
-
-	if (!movieId) {
-		contentEl.innerHTML = "<p>ID du film manquant.</p>";
-		return;
-	}
-
-	contentEl.innerHTML = '<p style="text-align: center; color: var(--muted); padding: 40px 0;">Chargement des détails du film...</p>';
-
-	try {
-		const movie = await getMovieById(movieId);
-
-		if (movie.Response === "False") {
-			contentEl.innerHTML = `<p style="text-align: center; color: var(--muted); padding: 40px 0;">Film introuvable.</p>`;
-			return;
-		}
-
-		contentEl.innerHTML = renderMovieDetails(movie);
-	} catch (error) {
-		console.error("Error loading movie:", error);
-		contentEl.innerHTML = '<p style="text-align: center; color: var(--muted); padding: 40px 0;">Une erreur est survenue lors du chargement.</p>';
-	}
+  const movieId = getQueryParam("id");
+  
+  if (!movieId) {
+    contentEl.innerHTML = "<p>ID du film manquant.</p>";
+    return;
+  }
+  
+  contentEl.innerHTML = '<p style="text-align: center; color: var(--text-muted); padding: 40px 0;">Chargement des détails du film...</p>';
+  
+  try {
+    const movie = await getMovieById(movieId);
+    
+    if (movie.Response === "False") {
+      contentEl.innerHTML = `<p style="text-align: center; color: var(--text-muted); padding: 40px 0;">Film introuvable.</p>`;
+      return;
+    }
+    
+    contentEl.innerHTML = renderMovieDetails(movie);
+  } catch (error) {
+    console.error("Error loading movie:", error);
+    contentEl.innerHTML = '<p style="text-align: center; color: var(--text-muted); padding: 40px 0;">Une erreur est survenue lors du chargement.</p>';
+  }
 }
 
 loadMovie();

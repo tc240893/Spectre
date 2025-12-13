@@ -36,8 +36,7 @@ html {
 }
 
 body {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
@@ -156,7 +155,6 @@ select {
 .btn-hero:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px var(--shadow);
-  text-decoration: none;
 }
 
 .content-section {
@@ -241,29 +239,7 @@ select {
   margin-top: 32px;
 }
 
-.btn-secondary {
-  background: transparent;
-  border: 1px solid var(--border);
-  color: var(--text);
-  padding: 12px 28px;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.btn-secondary:hover:not(:disabled) {
-  background: var(--card);
-  border-color: var(--accent);
-  transform: translateY(-2px);
-}
-
-.btn-secondary:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
+.btn-secondary,
 .btn-secondary-second {
   background: transparent;
   border: 1px solid var(--border);
@@ -274,15 +250,16 @@ select {
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s;
-  align-items: center;
 }
 
+.btn-secondary:hover:not(:disabled),
 .btn-secondary-second:hover:not(:disabled) {
   background: var(--card);
   border-color: var(--accent);
   transform: translateY(-2px);
 }
 
+.btn-secondary:disabled,
 .btn-secondary-second:disabled {
   opacity: 0.5;
   cursor: not-allowed;
@@ -336,7 +313,7 @@ select {
   object-fit: contain;
   border-radius: 8px;
   box-shadow: 0 4px 12px var(--shadow);
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
 
@@ -367,19 +344,6 @@ select {
 @media (max-width: 480px) {
   .feature-image {
     height: 150px;
-  }
-}
-
-@media (max-width: 900px) {
-  .feature-item,
-  .feature-item.reverse {
-    grid-template-columns: 1fr;
-    gap: 32px;
-    direction: ltr;
-  }
-
-  .feature-image {
-    height: 250px;
   }
 }
 
@@ -577,8 +541,6 @@ select {
   }
 }
 
-/* REPLACE YOUR FOOTER CSS WITH THIS */
-
 .footer {
   background: var(--bg-secondary);
   border-top: 1px solid var(--border);
@@ -684,9 +646,11 @@ select {
 .mt-1 {
   margin-top: 8px;
 }
+
 .mt-2 {
   margin-top: 16px;
 }
+
 .mt-3 {
   margin-top: 24px;
 }
