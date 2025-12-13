@@ -12,15 +12,14 @@
 
 ## Configuration requise
 
-> [!CAUTION]
-> Il est nécessaire d'utiliser un serveur pour accéder au site. Vous pourrez utiliser:
+**C'est nécessaire d'utiliser un serveur HTTP pour accéder au site. Vous pouvez utiliser:**
 
 <strong><a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer">Live Server</a></strong> par Ritwick Dey, ou <strong> <a href="https://www.npmjs.com/package/http-server">http-server</a></strong> par http-party
 
-> [!NOTE]
+> [!IMPORTANT]
 > C'est possible d'utiliser des autres serveurs, mais nous ne pouvons pas garantir qu'ils fonctionneront correctement.
 
-> [!WARNING]  
+> [!CAUTION]  
 > <strong><a href="https://www.npmjs.com/package/serve">serve</a></strong> par Vercel ne fonctionne pas correctement en raison de sa gestion des URL conviviales (voir les problèmes <a href="https://github.com/vercel/serve/issues/732">**#732**</a> et <a href="https://github.com/vercel/serve-handler/issues/178">**#178**</a>). Nous vous recommandons fortement d'utiliser <strong><a href="https://www.npmjs.com/package/http-server">http-server</a></strong> à la place.
 
 ## Installation
