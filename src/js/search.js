@@ -4,6 +4,7 @@ import { createMovieCard } from "./utils.js";
 const searchInput = document.getElementById("searchInput");
 const resultsContainer = document.getElementById("searchResults");
 const loadMoreBtn = document.getElementById("loadMore");
+const searchContainer = document.querySelector(".search-page-container");
 
 let currentQuery = "";
 let currentPage = 1;
@@ -13,10 +14,12 @@ const clearResults = () => {
   resultsContainer.innerHTML = "";
   currentPage = 1;
   loadMoreBtn.style.display = "none";
+  searchContainer?.classList.remove("has-results");
 };
 
 const showMessage = (message) => {
   resultsContainer.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted);">${message}</p>`;
+  searchContainer?.classList.remove("has-results");
 };
 
 async function performSearch(query, page = 1) {
@@ -37,6 +40,8 @@ async function performSearch(query, page = 1) {
     if (page === 1) resultsContainer.innerHTML = "";
     
     if (result.Response === "True" && result.Search) {
+      searchContainer?.classList.add("has-results");
+      
       result.Search.forEach(movie => resultsContainer.appendChild(createMovieCard(movie)));
       
       const totalResults = parseInt(result.totalResults);
