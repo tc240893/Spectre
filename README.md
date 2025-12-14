@@ -1,5 +1,5 @@
 <div align="center">
-<img width="180" title="SUPINFO" alt="Logo SUPINFO" src="https://github.com/user-attachments/assets/b8a5986f-efc3-4326-b15e-f12073e24739" />
+<img width="180" title="SUPINFO" alt="Logo SUPINFO" src="https://github.com/user-attachments/assets/a7e69545-2c61-4aa8-a044-df6935a1f40e" />
 <h1>Spectre</h1>
 <p width="120"> Une application web moderne et fonctionnelle qui répond aux besoins réels des amateurs de cinéma. </p>
 </div>
@@ -13,9 +13,8 @@
 ## Configuration requise
 
 **C'est nécessaire d'utiliser un serveur HTTP pour accéder au site. Vous pouvez utiliser:**
-
-<strong><a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer">Live Server</a></strong> par Ritwick Dey, ou <strong> <a href="https://www.npmjs.com/package/http-server">http-server</a></strong> par http-party
-
+   - **Option 1**: Extension Visual Studio Code <strong><a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer">Live Server</a></strong> par Ritwick Dey
+   - **Option 2**: <strong> <a href="https://www.npmjs.com/package/http-server">http-server</a></strong> par http-party
 > [!IMPORTANT]
 > C'est possible d'utiliser des autres serveurs, mais nous ne pouvons pas garantir qu'ils fonctionneront correctement.
 
@@ -58,7 +57,8 @@ Spectre/
         ├── 2.png
         ├── 3.png
         └── ico/
-            └── favicon.ico
+            ├── favicon-dark.ico
+            └── favicon-light.ico
 
 ```
 
