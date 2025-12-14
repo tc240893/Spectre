@@ -468,55 +468,62 @@ select {
 
 .search-page-header {
   text-align: center;
-  margin-bottom: clamp(1.5rem, 3vh, 2rem);
+  margin-bottom: clamp(0.75rem, 1.5vh, 1rem);
   width: 100%;
   transition: margin-bottom 0.6s ease;
 }
 
 .search-page-container.has-results .search-page-header {
-  margin-bottom: clamp(1rem, 2vh, 1.5rem);
+  margin-bottom: clamp(0.5rem, 1vh, 0.75rem);
 }
 
 .search-page-header h1 {
   font-size: clamp(2.5rem, 8vw, 4.5rem);
   margin-top: 0;
-  margin-bottom: clamp(0.5rem, 2vh, 1rem);
-  line-height: 1.1;
+  margin-bottom: clamp(0.5rem, 1vh, 0.75rem);
+  line-height: 0.8;
   font-weight: 700;
   transition: font-size 0.6s ease, margin-bottom 0.6s ease;
 }
 
 .search-page-container.has-results .search-page-header h1 {
   font-size: clamp(2rem, 6vw, 3rem);
-  margin-bottom: clamp(0.25rem, 1vh, 0.5rem);
+  margin-bottom: clamp(0.25rem, 0.75vh, 0.4rem);
 }
 
 .search-page-header p {
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
-  max-width: 45rem;
+  font-size: clamp(1.125rem, 2.75vw, 1.91rem);
+  max-width: 55rem;
   margin: 0 auto;
-  transition: font-size 0.6s ease, opacity 0.6s ease;
+  transition: font-size 0.6s ease, opacity 0.6s ease, max-width 0.6s ease;
+  letter-spacing: 0.01em;
 }
 
 .search-page-container.has-results .search-page-header p {
-  font-size: clamp(0.875rem, 2vw, 1rem);
+  font-size: clamp(0.9rem, 2.25vw, 1.0625rem);
   opacity: 0.8;
+  max-width: 45rem;
 }
 
 .search-input-container {
   max-width: clamp(20rem, 90vw, 37.5rem);
   width: 100%;
   margin: 0 auto 2.5rem;
-  transition: margin-bottom 0.6s ease;
+  transition: margin-bottom 0.6s ease, margin-top 0.6s ease;
 }
 
 .search-page-container.has-results .search-input-container {
   margin-bottom: 1.5rem;
+  margin-top: clamp(0.5rem, 1vh, 0.75rem);
 }
 
 .search-grid {
   width: 100%;
   margin-top: 2rem;
+}
+
+.search-grid p {
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
 }
 
 .search-input {
