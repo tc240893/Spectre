@@ -16,7 +16,7 @@ const clearResults = () => {
 };
 
 const showMessage = (message) => {
-  resultsContainer.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 40px 0;">${message}</p>`;
+  resultsContainer.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted);">${message}</p>`;
 };
 
 async function performSearch(query, page = 1) {
