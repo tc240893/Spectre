@@ -36,6 +36,7 @@ Spectre/
 ├── index.html             # Page d'accueil
 ├── search.html            # Page de recherche
 ├── movie.html             # Page détails du film
+├── 404.html               # Page 404
 ├── about.html             # À propos
 ├── credits.html           # Crédits
 ├── privacy-policy.html    # Infos légales
