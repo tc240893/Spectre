@@ -78,7 +78,7 @@ Spectre/
 - Recherche en temps réel avec debouncing
 - Affichage des résultats avec affiche, titre et année
 
-**3. Détails du film `movie.html`**
+**3. Détails du film** `movie.html`
 - Récupération complète des informations via l'ID IMDb
 - Affichage : affiche, synopsis, casting, notes, récompenses, etc.
 - Formatage des dates DVD en format français
@@ -100,7 +100,7 @@ Le site utilise l'API OMDb (The Open Movie Database) :
 **Chargement dynamique** :
 - Les films sont chargés de manière async via `fetch()`
 - Gestion des erreurs et images manquantes
-- Images de secours `nopicture.png` si l'affiche n'existe pas
+- Image de secours `nopicture.png` si l'affiche n'existe pas
 
 **Performance** :
 - Lazy loading des images `loading="lazy"`
@@ -114,7 +114,8 @@ Le site utilise l'API OMDb (The Open Movie Database) :
 ```json
 "movies": [
     "Inception",
-    "Interstellar",
+    "Interstellar"
+]
 ```
 
 **Changer la clé API** :
@@ -134,4 +135,17 @@ Ce site utilise **HTML, CSS et JavaScript moderne** pour offrir une expérience 
 ## Objectif du projet
 
 Ce projet a été réalisé dans le cadre d'un mini-projet académique à SUPINFO par des étudiants passionnés de développement web.
+
+## Credits
+
+### Core Research and Development
+- **lava1879** - Lead development, testing
+- **tc240893** - Development, code formatting, testing
+
+### Other Contributions
+- **abdessamad-26** - Assistance with initial development efforts
+
+### Special Thanks
+- **Brian Fritz** - OMDb API
+- **SUPINFO** - A fun challenge
 
