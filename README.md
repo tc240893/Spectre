@@ -13,9 +13,8 @@
 ## Configuration requise
 
 **C'est nécessaire d'utiliser un serveur HTTP pour accéder au site. Vous pouvez utiliser:**
-
-<strong><a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer">Live Server</a></strong> par Ritwick Dey, ou <strong> <a href="https://www.npmjs.com/package/http-server">http-server</a></strong> par http-party
-
+   - **Option 1**: Extension Visual Studio Code <strong><a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer">Live Server</a></strong> par Ritwick Dey
+   - **Option 2**: <strong> <a href="https://www.npmjs.com/package/http-server">http-server</a></strong> par http-party
 > [!IMPORTANT]
 > C'est possible d'utiliser des autres serveurs, mais nous ne pouvons pas garantir qu'ils fonctionneront correctement.
 
