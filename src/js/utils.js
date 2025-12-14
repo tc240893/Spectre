@@ -1,6 +1,6 @@
 export const getQueryParam = (name) => new URLSearchParams(location.search).get(name);
 
-export const getDefaultPoster = () => "src/img/ico/nopicture.png";
+export const getDefaultPoster = () => "src/img/nopicture.png";
 
 export const getPosterUrl = (posterUrl) => posterUrl !== "N/A" ? posterUrl : getDefaultPoster();
 

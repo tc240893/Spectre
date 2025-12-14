@@ -53,12 +53,12 @@ Spectre/
     │   ├── search-overlay.js  # Overlay de recherche
     │   └── theme.js       # Gestion du thème
     └── img/
+        ├── nopicture.png  # Image par défaut
         ├── 1.png
         ├── 2.png
         ├── 3.png
         └── ico/
-            ├── favicon.ico
-            └── nopicture.png  # Image par défaut
+            └── favicon.ico
 
 ```
 
