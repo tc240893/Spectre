@@ -1,4 +1,4 @@
-const THEME_KEY = "cinema-theme";
+const THEME_KEY = "spectre-theme";
 const themeBtn = document.getElementById("themeToggle");
 const themeIcon = document.getElementById("themeIcon");
 

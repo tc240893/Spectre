@@ -3,18 +3,6 @@ import { getQueryParam, getPosterUrl, getDefaultPoster } from "./utils.js";
 
 const contentEl = document.getElementById("content");
 
-const formatDVD = (dateStr) => {
-  if (!dateStr || dateStr === "N/A") return "N/A";
-  const date = new Date(dateStr);
-  if (isNaN(date)) return dateStr;
-  
-  return date.toLocaleDateString("fr-FR", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric"
-  });
-};
-
 const renderRatings = (ratings) => {
   if (!ratings?.length) return "";
   
@@ -64,12 +52,6 @@ function renderMovieDetails(movie) {
         <p>${movie.Plot}</p>
 
         ${renderRatings(movie.Ratings)}
-
-        ${movie.DVD && movie.DVD !== "N/A" ? `
-          <div class="meta-row" style="margin-top: 16px;">
-            <div><strong>Sortie DVD:</strong> ${formatDVD(movie.DVD)}</div>
-          </div>
-        ` : ""}
 
         ${movie.BoxOffice && movie.BoxOffice !== "N/A" ? `
           <div class="meta-row">
